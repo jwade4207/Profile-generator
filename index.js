@@ -245,11 +245,15 @@ const finishedPrompt = () => {
 }
 */
 
+// holds the value of all created employees
+const createdEmployees = [];
+
 managerPrompt()
     .then(answer => {
-        let manager = new Manager(answer)
+        let manager = new Manager(answer.managerName, answer.managerId, answer.managerEmail, answer.officeNumber)
         managerInfo = manager
         console.log(manager)
+        createdEmployees.push(manager)
     })
 
     .then(menuPrompt)
@@ -257,27 +261,30 @@ managerPrompt()
         if (answer.menuPrompt === "Add-Engineer"); {
             engineerPrompt()
                 .then(answer => {
-                    let engineer = new Engineer(answer)
+                    let engineer = new Engineer(answer.engineerName, answer.engineerId, answer.engineerEmail, answer.engineerGithub)
                     engineerInfo = engineer
                     console.log(engineer)
+                    createdEmployees.push(engineer)
                 })
                 .then(menuPrompt)
                 .then(answer => {
                     if (answer.menuPrompt === "Add-Employee"); {
                         employeePrompt()
                             .then(answer => {
-                                let employee = new Employee(answer)
+                                let employee = new Employee(answer.employeeName, answer.employeeId, answer.employeeEmail)
                                 employeeInfo = employee
                                 console.log(employee)
+                                createdEmployees.push(employee)
                             })
                             .then(menuPrompt)
                             .then(answer => {
                                 if (answer.menuPrompt === "Add-Intern"); {
                                     internPrompt()
                                         .then(answer => {
-                                            let intern = new Intern(answer)
+                                            let intern = new Intern(answer.internName, answer.internId, answer.internEmail, answer.InternSchool)
                                             internInfo = intern
                                             console.log(intern)
+                                            createdEmployees.push(intern)
                                         })
                                         .then(menuPrompt)
                                         .then(answer => {
@@ -285,7 +292,7 @@ managerPrompt()
                                                 finishedPrompt()
                                                     .then(answer => {
                                                         if (answer) {
-                                                            writeFile();
+                                                            writeFile(createdEmployees);
                                                             return true;
                                                         } else {
                                                             menuPrompt();
@@ -304,9 +311,10 @@ managerPrompt()
         console.log(err);
     });
 
-const writeFile = () => {
+const writeFile = (createdEmployees) =>{
+    const generatedhtml = generateHtml(createdEmployees)
     return new Promise((resolve, reject) => {
-        fs.writeFile('./dist/index.html', answer, err => {
+        fs.writeFile('./dist/index.html', generatedhtml, err => {
             if (err) {
                 reject(err);
                 return;

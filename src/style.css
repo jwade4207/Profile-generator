@@ -1,0 +1,53 @@
+:root {
+    --primary:rgb(22, 59, 114);
+    --secondary:rgb(231, 74, 0);
+    --tertiary:white;
+}
+
+#navbar {
+    background-color: var(--primary);
+    color: var(--tertiary);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.navbar-brand {
+    font-size: 50px;;
+}
+.container {
+    margin: 100px auto;
+    justify-content: space-evenly;
+    display: flex;
+    
+}
+.card {
+    display:flex;
+    flex-direction: column;
+    background-color: var(--primary);
+    border-radius: 5%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.card-body {
+    display: inline;
+    padding: 2.5%;
+    background-color: var(--primary);
+    color:var(--tertiary);
+}
+
+.card-img-top {
+    margin: 5px auto;
+    max-width: 75%;
+}
+
+.card-title, .card-text {
+    text-align: center;
+}
+
+.list-group, .list-group-item {
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.mb-3 {
+    margin: 0 10px;
+}

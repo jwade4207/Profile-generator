@@ -1,4 +1,4 @@
-const generateHtml = (answer) => {
+const generateHtml = (createdEmployees) => {
     return `
     <!DOCTYPE html>
     <html lang="en">
@@ -22,10 +22,10 @@ const generateHtml = (answer) => {
             <section>
             <div class="card" style="width: 18rem;">
             <div class="card-body">
-              <h5 class="card-title">${answer.managerName}</h5>
-              <h6 class="card-subtitle mb-2 text-muted">${answer.managerId}</h6>
-              <p class="card-text">${answer.officeNumber}</pId>
-              <a href="#" class="card-link">${answer.managerEmail}</a>
+              <h5 class="card-title">${createdEmployees[0].name}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">${createdEmployees[0].id}</h6>
+              <p class="card-text">${createdEmployees[0].officeNumber}</pId>
+              <a href="#" class="card-link">${createdEmployees[0].email}</a>
             </div>
           </div>
             </section>
@@ -33,27 +33,27 @@ const generateHtml = (answer) => {
             <section>
             <div class="card" style="width: 18rem;">
             <div class="card-body">
-              <h5 class="card-title">${answer.engineerName}</h5>
-              <h6 class="card-subtitle mb-2 text-muted">${answer.engineerId}</h6>
-              <p class="card-text">${answer.engineerGithub}</pId>
-              <a href="#" class="card-link">${answer.engineerEmail}</a>
+              <h5 class="card-title">${createdEmployees[1].name}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">${createdEmployees[1].id}</h6>
+              <p class="card-text">${createdEmployees[1].gitHub}</pId>
+              <a href="#" class="card-link">${createdEmployees[1].email}</a>
             </div>
           </div>
           <!-- Employee Section -->
           <div class="card" style="width: 18rem;">
           <div class="card-body">
-            <h5 class="card-title">${answer.employeeName}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">${answer.employeeId}</h6>
-            <a href="#" class="card-link">${answer.employeeEmail}</a>
+            <h5 class="card-title">${createdEmployees[2].name}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">${createdEmployees[2].id}</h6>
+            <a href="#" class="card-link">${createdEmployees[2].email}</a>
           </div>
         </div>
         <!-- Intern Section -->
         <div class="card" style="width: 18rem;">
         <div class="card-body">
-          <h5 class="card-title">${answer.internName}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">${answer.internId}</h6>
-          <p class="card-text">${answer.internSchool}</pId>
-          <a href="#" class="card-link">${answer.internEmail}</a>
+          <h5 class="card-title">${createdEmployees[3].name}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">${createdEmployees[3].id}</h6>
+          <p class="card-text">${createdEmployees[3].school}</pId>
+          <a href="#" class="card-link">${createdEmployees[3].email}</a>
         </div>
       </div>
             </section>
